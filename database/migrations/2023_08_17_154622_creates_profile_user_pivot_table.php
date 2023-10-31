@@ -20,8 +20,8 @@ class CreatesProfileUserPivotTable extends Migration
 
             $table->timestamps();
         });
-    }
-
+    }   
+    
     /**
      * Reverse the migrations.
      *
