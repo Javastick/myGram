@@ -1,7 +1,11 @@
 <?php
 
-use App\Http\Controllers\FollowsController;
+use App\Mail\NewUserWelcomeMail;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PostsController;
+use App\Http\Controllers\FollowsController;
+use App\Http\Controllers\ProfilesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,18 +18,20 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
 Auth::routes();
 
+Route::get('/mail', function(){
+    return new NewUserWelcomeMail();
+});
+
 Route::post('follow/{user}', [FollowsController::class, 'store']);
 
-Route::get('/p/create', [App\Http\Controllers\PostsController::class, 'create']);
-Route::get('/p/{post}', [App\Http\Controllers\PostsController::class, 'show']);
-Route::post('/p', [App\Http\Controllers\PostsController::class, 'store']);
+Route::get('/', [PostsController::class, 'index']);
+Route::get('/p/create', [PostsController::class, 'create']);
+Route::get('/p/{post}', [PostsController::class, 'show']);
+Route::post('/p', [PostsController::class, 'store']);
 
-Route::get('/profile/{user}', [App\Http\Controllers\ProfilesController::class, 'index'])->name('profile.show');
-Route::get('/profile/{user}/edit', [App\Http\Controllers\ProfilesController::class, 'edit'])->name('profile.edit');
-Route::patch('/profile/{user}', [App\Http\Controllers\ProfilesController::class, 'update'])->name('profile.update');
+Route::get('/profile/{user}', [ProfilesController::class, 'index'])->name('profile.show');
+Route::get('/profile/{user}/edit', [ProfilesController::class, 'edit'])->name('profile.edit');
+Route::patch('/profile/{user}', [ProfilesController::class, 'update'])->name('profile.update');
