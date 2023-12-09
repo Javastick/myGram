@@ -1,12 +1,12 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-    <div class="row">
-        <div class="col-8">
+<div class="container d-flex justify-content-center">
+    <div class="row m-3 p-3 shadow rounded">
+        <div class="col">
             <img src="/storage/{{ $post->image }}" alt="" class="w-100">
         </div>
-        <div class="col-4">
+        <div class="col">
             <div class="d-flex align-items-center">
                 <div class="pe-2">
                     <img src="{{ $post->user->profile->profileImage() }}" class="w-100 rounded-circle" style="max-width: 50px">
@@ -19,7 +19,7 @@
             <hr>
             <p>
                 <span>
-                    <a href="/profile/{{ $post->user->id }}" class="text-dark">{{ $post->user->username }}</a>
+                    <a href="/profile/{{ $post->user->id }}" class="text-dark fw-bold">{{ $post->user->username }}</a>
                 </span>
                 ~{{ $post->caption }}
             </p>

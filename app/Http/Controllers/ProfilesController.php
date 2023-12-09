@@ -35,6 +35,14 @@ class ProfilesController extends Controller
 
         return view('profiles.index', compact('user', 'follows', 'postCount', 'followersCount', 'followingCount'));
     }
+    public function search()
+    {
+        $search = request('search');
+        $users = User::where('username', 'like', '%' . $search . '%')
+                    ->orWhere('name', 'like', '%' . $search . '%')->with('profile')->get();
+
+        return view("profiles.search", compact('users'));
+    }
     public function edit(User $user){
         $this->authorize('update', $user->profile);
         

@@ -1,12 +1,12 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
+<div class="container mt-4">
     <form action="/p" enctype="multipart/form-data" method="post">
     @csrf
 
         <div class="row">
-            <div class="row">
+            <div class="row text-center m-2">
                 <h1>Buat Postingan Baru</h1>
             </div>
             <div class="col-8 offset-2">

@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
+<div class="container mt-4">
     <div class="row">
         <div class="col-3">
             <img src="{{ $user->profile->profileImage() }}" alt="" class="rounded-circle img-fluid" style="height: 250px; width: 250px;">

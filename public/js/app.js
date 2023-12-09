@@ -27169,7 +27169,7 @@ var render = function () {
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "container" }, [
     _c("button", {
-      staticClass: "btn btn-primary ms-5",
+      staticClass: "btn btn-primary",
       domProps: { textContent: _vm._s(_vm.buttonText) },
       on: { click: _vm.followUser },
     }),
