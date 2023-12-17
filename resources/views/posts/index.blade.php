@@ -10,7 +10,7 @@
                         <a href="/profile/{{ $item->id }}" class="nav-link d-flex flex-column justify-content-center align-items-center">
                             <img src="{{ $item->profile->profileImage() }}" alt="" class="rounded-circle border" width="75" height="75">
                             <div class="">
-                                <p>{{ $item->name }}</p>
+                                <p>{{ $item->username }}</p>
                             </div>
                         </a>
                         <follow-button user-id="{{ $item->id }}" follows="{{ $follows }}"></follow-button>

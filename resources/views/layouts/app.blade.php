@@ -73,12 +73,10 @@
                                         <i class="fa-solid fa-square-plus fa-xl"></i>
                                     </a>
                                 </li>
-
-
                                 <li class="nav-item">
                                     <a href="/profile/{{ Auth::user()->id }}" class="nav-link">
-                                        <img src="/storage/{{ Auth::user()->profile->image }}" alt=""
-                                            width="25" class="rounded-circle">
+                                        <img src="{{ Auth::user()->profile->profileImage() }}" alt=""
+                                            width="25" height="25" class="rounded-circle border">
                                     </a>
                                 </li>
                             </ul>
